@@ -2,3 +2,35 @@
   margin: 0;
   padding: 0;
 }
+
+.start-quiz {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F5F7FB;
+  color: #4D5B9E;
+}
+
+.start-quiz h1 {
+  margin: 5px;
+  font-size: 31.25px;
+}
+
+.start-quiz p {
+  margin: 5px;
+}
+
+.start-quiz button {
+  margin: 20px;
+  padding: 10px;
+  width: 193px;
+  height: 52px;
+  border-radius: 15px;
+  font-size: 16px;
+  background-color: #4D5B9E;
+  border: transparent;
+  color: white;
+}
