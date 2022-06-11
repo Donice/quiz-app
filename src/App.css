@@ -1,9 +1,18 @@
+button {
+  margin: 20px;
+  padding: 10px;
+  background-color: #4D5B9E;
+  border: transparent;
+  color: white;
+}
+
 .App {
   margin: 0;
   padding: 0;
 }
 
-.start-quiz {
+.start-quiz,
+.quiz {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -24,13 +33,26 @@
 }
 
 .start-quiz button {
-  margin: 20px;
-  padding: 10px;
   width: 193px;
   height: 52px;
   border-radius: 15px;
   font-size: 16px;
-  background-color: #4D5B9E;
-  border: transparent;
-  color: white;
 }
+
+.quiz {
+  color: #000000; 
+}
+
+.quiz button {
+  width: 120px;
+  height: 52px;
+  border-radius: 10px;
+  font-size: 10px;
+}
+
+.quiz-questions {
+  width: 600px;
+  text-align: left;
+  border: 1px solid red;
+}
+

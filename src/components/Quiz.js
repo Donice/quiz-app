@@ -1,10 +1,10 @@
 import '../App.css'
 
-const Quiz = (props) => {
+const Quiz = ({allQuestions}) => {
     return (
         <div className='quiz'>
-            <h3>Hello World</h3>
-            <button>Check Answers</button>
+            <pre>{JSON.stringify(allQuestions, null, 2)}</pre>
+            <button>answer</button>
         </div>
     )
 }
