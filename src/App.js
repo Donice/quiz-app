@@ -1,50 +1,43 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-// import Quiz from './components/Quiz';
-import uuid from 'react-uuid'
 
 function App() {
-   const [start, setStart] = useState(true)
-   const [questions, setQuestions] = useState({
-      id: uuid(),
-      question: "Questions",
-      firstOption: "",
-      secondOption: "",
-      thirdOption: "",
-      fourthOption: "",
-   })
-
-   console.log(questions)
-   const [allQuestions, setAllQuestions] = useState([])
-
+   const [start, setStart] = useState(false)
+   const [questions, setQuestions] = useState([])
 
    useEffect(() => {
-      async function getQuestion() {
-         const res = await fetch("https://opentdb.com/api.php?amount=5&category=19&difficulty=medium")
-         const data = await res.json()
-         setAllQuestions(data.results)
-      } 
-      getQuestion()
+         fetch("https://opentdb.com/api.php?amount=5&category=19&difficulty=medium&type=multiple")
+            .then(res => res.json())
+            .then(data => setQuestions(data.results))
    }, [])
 
-   const getQuestions = () => {
-      const randomNumber = Math.floor(Math.random() * questions.length)
-      return randomNumber
-   }
+   console.log(questions)
+
+   const getQuestions = questions.map(item => {
+      return(
+         <>
+            <p>{item.question}</p>
+            <p>{item.incorrect_answers.map(item => <span>` ${item} `</span>)}
+            <span>{item.correct_answer} </span>  
+            </p>
+         </>
+       )
+   })
+
 
    return (
       <main className="App">
          {
-            start
+            !start
             ? 
+            // ----------------------------
             <div className='quiz'>
                <section className='quiz-questions'>
-                  <h1>{questions.question}</h1>
-                  {/* <pre>{JSON.stringify(allQuestions, null, 2)}</pre> */}
+                  {getQuestions}
                </section>
                <button>answer</button>
             </div>
-            
+            // --------------------------------------
             :
             <div className='start-quiz'>
                 <h1>Quizzical</h1>
@@ -57,3 +50,14 @@ function App() {
 }
 
 export default App;
+      // fetch("https://opentdb.com/api.php?amount=5&category=19&difficulty=medium&type=multiple")
+      //    .then(res => res.join())
+   //    //    .then(data => setAllQuestions(data.results))
+   // {
+   //    id: uuid(),
+   //    question: "",
+   //    firstOption: "",
+   //    secondOption: "",
+   //    thirdOption: "",
+   //    fourthOption: "",
+   // }
