@@ -47,12 +47,11 @@ button {
   width: 120px;
   height: 52px;
   border-radius: 10px;
-  font-size: 10px;
+  font-size: 16px;
 }
 
 .quiz-questions {
-  width: 600px;
+  width: 500px;
   text-align: left;
-  border: 1px solid red;
 }
 
