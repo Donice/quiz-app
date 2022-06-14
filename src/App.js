@@ -16,10 +16,11 @@ function App() {
    const getQuestions = questions.map(item => {
       return(
          <>
-            <p>{item.question}</p>
-            <p>{item.incorrect_answers.map(item => <span>` ${item} `</span>)}
-            <span>{item.correct_answer} </span>  
+            <h4>{item.question}</h4>
+            <p>{item.incorrect_answers.map(item => <span className='answers'>{item}</span>)}
+            <span className='answers'> {item.correct_answer}</span>  
             </p>
+            <hr />
          </>
        )
    })
@@ -35,7 +36,7 @@ function App() {
                <section className='quiz-questions'>
                   {getQuestions}
                </section>
-               <button>answer</button>
+               <button>Check answer</button>
             </div>
             // --------------------------------------
             :
